@@ -9,11 +9,17 @@ public class Truck extends Talk implements Runnable {
 
     private static int n = 0;
 
-    private static Truck truck;
+    private final Scheduler scheduler;
 
-    public Truck(int maxCapacity, int maxWaitTime) {
+    private final long creationTime = System.currentTimeMillis();
+
+    private final Ship ship;
+
+    public Truck(Scheduler scheduler, Ship ship, int maxCapacity, int maxWaitTime) {
         super("Truck#" + ++n);
 
+        this.scheduler = scheduler;
+        this.ship = ship;
         this.maxCapacity = maxCapacity;
         this.maxWaitTime = maxWaitTime;
 
@@ -24,40 +30,32 @@ public class Truck extends Talk implements Runnable {
         return loaded;
     }
 
-    private synchronized void leave() throws InterruptedException {
-        Ship.getInstance().load(this);
+    private void leave() throws InterruptedException {
+        int waitingTime = ThreadLocalRandom.current().nextInt(maxWaitTime) + 1;
+        Thread.sleep(waitingTime);
+
+        scheduler.getLogger().log(this, "Got to the ship - it took: " + waitingTime + "ms");
+
+        ship.load(this);
         talk("Released from ship");
 
-        int waitingTime = ThreadLocalRandom.current().nextInt(maxWaitTime) + 1;
-//        Thread.sleep(waitingTime);
+        waitingTime = ThreadLocalRandom.current().nextInt(maxWaitTime) + 1;
+        Thread.sleep(waitingTime);
 
+        scheduler.getLogger().log(this, "Got to the final destination - it took: " + waitingTime + "ms");
         talk("Done with job");
     }
 
-    public synchronized static Truck getTruck() {
-        if(truck == null) {
-            replaceTruck();
-        }
-
-        return truck;
-    }
-
-    public synchronized static void replaceTruck() {
-        truck = new Truck(Arguments.lorryCapacity(), Arguments.lorryTime());
-    }
-
-    public synchronized void load(Worker worker) {
-        worker.talk("loading");
+    public void load() {
         loaded += 1;
 
-        if (loaded == maxCapacity) {
+        if (full()) {
             talk("full");
-            worker.talk("replacing truck");
-
-            replaceTruck();
-
-            new Thread(this).start();
         }
+    }
+
+    public boolean full() {
+        return loaded == maxCapacity;
     }
 
     @Override
@@ -67,5 +65,18 @@ public class Truck extends Talk implements Runnable {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
+    }
+
+    /**
+     * sends truck to the ship
+     * @return created thread for the truck
+     */
+    public Thread send() {
+        scheduler.getLogger().log(this, "Truck is full - it took: " + (System.currentTimeMillis() - creationTime) + "ms to fill");
+
+        Thread thread = new Thread(this);
+        thread.start();
+
+        return thread;
     }
 }

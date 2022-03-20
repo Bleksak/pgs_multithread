@@ -1,0 +1,148 @@
+1647776708803, Scheduler, Finished file analysis - block_count: 14 - material_count: 120
+1647776708845, Worker#1, finished mining material - it took: 18ms
+1647776708845, Worker#3, finished mining material - it took: 18ms
+1647776708845, Worker#1, finished mining a block - it took: 18ms
+1647776708851, Worker#3, finished mining material - it took: 5ms
+1647776708855, Worker#4, finished mining material - it took: 31ms
+1647776708855, Worker#2, finished mining material - it took: 31ms
+1647776708855, Worker#4, finished mining a block - it took: 31ms
+1647776708855, Worker#2, finished mining a block - it took: 31ms
+1647776708898, Worker#3, finished mining material - it took: 47ms
+1647776708898, Worker#3, finished mining a block - it took: 70ms
+1647776708899, Worker#2, finished mining material - it took: 32ms
+1647776708899, Worker#2, finished mining a block - it took: 32ms
+1647776708905, Worker#1, finished mining material - it took: 47ms
+1647776708915, Worker#4, finished mining material - it took: 49ms
+1647776708915, Worker#4, finished mining a block - it took: 49ms
+1647776708916, Worker#1, finished mining material - it took: 11ms
+1647776708931, Worker#4, finished mining material - it took: 5ms
+1647776708931, Worker#4, finished mining a block - it took: 5ms
+1647776708935, Worker#2, finished mining material - it took: 24ms
+1647776708950, Worker#2, finished mining material - it took: 14ms
+1647776708951, Worker#1, finished mining material - it took: 35ms
+1647776708953, Worker#4, finished mining material - it took: 10ms
+1647776708953, Worker#4, finished mining a block - it took: 10ms
+1647776708967, Worker#3, finished mining material - it took: 36ms
+1647776708980, Worker#1, finished mining material - it took: 28ms
+1647776708996, Worker#2, finished mining material - it took: 46ms
+1647776709000, Worker#2, finished mining material - it took: 3ms
+1647776709012, Worker#3, finished mining material - it took: 44ms
+1647776709012, Worker#3, finished mining a block - it took: 80ms
+1647776709012, Worker#4, finished mining material - it took: 48ms
+1647776709020, Worker#1, finished mining material - it took: 40ms
+1647776709022, Worker#4, finished mining material - it took: 10ms
+1647776709036, Worker#2, finished mining material - it took: 36ms
+1647776709044, Worker#2, finished mining material - it took: 7ms
+1647776709045, Worker#1, finished mining material - it took: 25ms
+1647776709052, Worker#4, finished mining material - it took: 29ms
+1647776709061, Worker#3, finished mining material - it took: 26ms
+1647776709064, Worker#1, finished mining material - it took: 19ms
+1647776709065, Worker#2, finished mining material - it took: 21ms
+1647776709073, Worker#4, finished mining material - it took: 21ms
+1647776709087, Worker#1, finished mining material - it took: 22ms
+1647776709106, Worker#2, finished mining material - it took: 40ms
+1647776709110, Worker#1, finished mining material - it took: 23ms
+1647776709111, Worker#2, finished mining material - it took: 5ms
+1647776709112, Worker#3, finished mining material - it took: 50ms
+1647776709114, Worker#1, finished mining material - it took: 4ms
+1647776709119, Worker#4, finished mining material - it took: 45ms
+1647776709136, Worker#2, finished mining material - it took: 25ms
+1647776709136, Worker#2, finished mining a block - it took: 221ms
+1647776709152, Worker#3, finished mining material - it took: 39ms
+1647776709161, Worker#1, finished mining material - it took: 47ms
+1647776709167, Worker#4, finished mining material - it took: 48ms
+1647776709171, Worker#4, finished mining material - it took: 4ms
+1647776709185, Worker#1, finished mining material - it took: 23ms
+1647776709194, Worker#4, finished mining material - it took: 22ms
+1647776709198, Worker#1, finished mining material - it took: 13ms
+1647776709199, Worker#3, finished mining material - it took: 47ms
+1647776709204, Worker#4, finished mining material - it took: 10ms
+1647776709225, Worker#3, finished mining material - it took: 26ms
+1647776709227, Worker#4, finished mining material - it took: 23ms
+1647776709233, Worker#4, finished mining material - it took: 6ms
+1647776709237, Worker#4, finished mining material - it took: 4ms
+1647776709239, Worker#1, finished mining material - it took: 41ms
+1647776709263, Worker#4, finished mining material - it took: 26ms
+1647776709266, Worker#3, finished mining material - it took: 41ms
+1647776709281, Worker#2, finished mining material - it took: 40ms
+1647776709285, Worker#1, finished mining material - it took: 46ms
+1647776709289, Worker#4, finished mining material - it took: 26ms
+1647776709297, Worker#1, finished mining material - it took: 11ms
+1647776709298, Worker#3, finished mining material - it took: 31ms
+1647776709299, Worker#2, finished mining material - it took: 17ms
+1647776709300, Worker#4, finished mining material - it took: 11ms
+1647776709314, Worker#2, finished mining material - it took: 15ms
+1647776709323, Worker#3, finished mining material - it took: 24ms
+1647776709333, Worker#1, finished mining material - it took: 35ms
+1647776709333, Worker#1, finished mining a block - it took: 470ms
+1647776709335, Worker#2, finished mining material - it took: 20ms
+1647776709341, Worker#2, finished mining material - it took: 6ms
+1647776709342, Worker#3, finished mining material - it took: 19ms
+1647776709351, Worker#4, finished mining material - it took: 50ms
+1647776709363, Worker#4, finished mining material - it took: 12ms
+1647776709369, Worker#2, finished mining material - it took: 28ms
+1647776709373, Worker#2, finished mining material - it took: 4ms
+1647776709391, Worker#3, finished mining material - it took: 49ms
+1647776709399, Worker#4, finished mining material - it took: 35ms
+1647776709409, Worker#4, finished mining material - it took: 10ms
+1647776709411, Worker#2, finished mining material - it took: 38ms
+1647776709419, Truck#1, Truck is full - it took: 618ms to fill
+1647776709438, Worker#3, finished mining material - it took: 47ms
+1647776709451, Worker#4, finished mining material - it took: 42ms
+1647776709462, Worker#2, finished mining material - it took: 50ms
+1647776709466, Worker#2, finished mining material - it took: 4ms
+1647776709483, Worker#3, finished mining material - it took: 44ms
+1647776709496, Worker#4, finished mining material - it took: 45ms
+1647776709503, Worker#3, finished mining material - it took: 20ms
+1647776709506, Truck#1, Got to the ship - it took: 87ms
+1647776709507, Worker#2, finished mining material - it took: 41ms
+1647776709524, Worker#4, finished mining material - it took: 27ms
+1647776709528, Worker#3, finished mining material - it took: 25ms
+1647776709530, Worker#2, finished mining material - it took: 22ms
+1647776709549, Worker#3, finished mining material - it took: 21ms
+1647776709565, Worker#4, finished mining material - it took: 41ms
+1647776709566, Worker#4, finished mining material - it took: 1ms
+1647776709573, Worker#4, finished mining material - it took: 7ms
+1647776709576, Worker#2, finished mining material - it took: 45ms
+1647776709576, Worker#2, finished mining a block - it took: 330ms
+1647776709583, Worker#3, finished mining material - it took: 34ms
+1647776709608, Worker#4, finished mining material - it took: 34ms
+1647776709616, Worker#3, finished mining material - it took: 32ms
+1647776709639, Worker#4, finished mining material - it took: 31ms
+1647776709657, Worker#3, finished mining material - it took: 40ms
+1647776709674, Worker#3, finished mining material - it took: 17ms
+1647776709686, Worker#4, finished mining material - it took: 46ms
+1647776709695, Worker#3, finished mining material - it took: 21ms
+1647776709703, Worker#3, finished mining material - it took: 7ms
+1647776709713, Worker#4, finished mining material - it took: 26ms
+1647776709735, Worker#4, finished mining material - it took: 22ms
+1647776709752, Worker#3, finished mining material - it took: 48ms
+1647776709767, Worker#3, finished mining material - it took: 15ms
+1647776709769, Worker#4, finished mining material - it took: 34ms
+1647776709794, Worker#4, finished mining material - it took: 25ms
+1647776709800, Worker#3, finished mining material - it took: 33ms
+1647776709807, Worker#3, finished mining material - it took: 7ms
+1647776709833, Worker#3, finished mining material - it took: 20ms
+1647776709844, Worker#4, finished mining material - it took: 50ms
+1647776709859, Worker#3, finished mining material - it took: 26ms
+1647776709873, Worker#4, finished mining material - it took: 29ms
+1647776709873, Worker#4, finished mining a block - it took: 900ms
+1647776709878, Worker#3, finished mining material - it took: 19ms
+1647776709895, Worker#3, finished mining material - it took: 16ms
+1647776709898, Worker#3, finished mining material - it took: 3ms
+1647776709901, Worker#3, finished mining material - it took: 3ms
+1647776709933, Worker#3, finished mining material - it took: 31ms
+1647776709937, Worker#3, finished mining material - it took: 4ms
+1647776709944, Worker#3, finished mining material - it took: 6ms
+1647776709944, Worker#3, finished mining a block - it took: 891ms
+1647776709957, Truck#2, Truck is full - it took: 538ms to fill
+1647776710117, Truck#3, Truck is full - it took: 159ms to fill
+1647776710301, Truck#4, Truck is full - it took: 184ms to fill
+1647776710534, Truck#3, Got to the ship - it took: 417ms
+1647776710926, Truck#2, Got to the ship - it took: 968ms
+1647776711180, Truck#4, Got to the ship - it took: 879ms
+1647776711181, Ship, The Ship is on the way - it took: 2405ms
+1647776711214, Truck#3, Got to the final destination - it took: 32ms
+1647776711537, Truck#2, Got to the final destination - it took: 354ms
+1647776712003, Truck#1, Got to the final destination - it took: 820ms
+1647776712090, Truck#4, Got to the final destination - it took: 908ms

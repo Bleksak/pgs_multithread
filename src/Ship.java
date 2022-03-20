@@ -1,48 +1,66 @@
 public class Ship extends Talk implements Runnable {
 
+    private final Scheduler scheduler;
     private boolean sleep = true;
 
     private final int maxCapacity;
-    private int loaded = 0;
-
-    private static Ship ship;
-
+    private int loaded;
     private int loadedTotal;
 
-    public Ship(int maxCapacity) {
+    private long creationTime = System.currentTimeMillis();
+
+    public Ship(Scheduler scheduler, int maxCapacity) {
         super("Ship");
+
+        this.scheduler = scheduler;
         this.maxCapacity = maxCapacity;
 
         talk("initialized");
     }
 
-    public static Ship getInstance() {
-        if(ship == null) {
-            ship = new Ship(Arguments.ferryCapacity());
-        }
-
-        return ship;
+    public int getLoadedTotal() {
+        return loadedTotal;
     }
 
+    /**
+     * synchronization barrier
+     *
+     * @param truck
+     * @throws InterruptedException
+     */
     public synchronized void load(Truck truck) throws InterruptedException {
         truck.talk("loading to ship");
 
-        loaded += 1;
+        while(!sleep) {
+            wait();
+        }
 
+        loaded += 1;
         loadedTotal += truck.getLoaded();
 
-        System.err.println(Scheduler.blockSum);
-        System.err.println("vs");
-        System.err.println(loadedTotal);
-
-        if(loaded == maxCapacity || loadedTotal == Scheduler.blockSum) {
+        if(loaded == maxCapacity) {
             talk("full, releasing trucks");
 
-            loaded = 0;
+            long currentTime = System.currentTimeMillis();
+
+            scheduler.getLogger().log(this, "The Ship is on the way - it took: " + (currentTime - creationTime) + "ms");
+
+            this.creationTime = currentTime;
+
+            sleep = false;
 
             notifyAll();
-        } else {
+        }
+
+        while(sleep) {
             wait();
+        }
+
+        loaded -= 1;
+
+        if(loaded == 0) {
+            sleep = true;
+            notifyAll();
         }
     }
 

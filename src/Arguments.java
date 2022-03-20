@@ -1,13 +1,13 @@
 public class Arguments {
-    private static String inputFile;
-    private static String outputFile;
-    private static int workerCount;
-    private static int workerTime;
-    private static int lorryCapacity;
-    private static int lorryTime;
-    private static int ferryCapacity;
+    private String inputFile;
+    private String outputFile;
+    private int workerCount;
+    private int workerTime;
+    private int lorryCapacity;
+    private int lorryTime;
+    private int ferryCapacity;
 
-    public static void load(String... args) {
+    public Arguments(String... args) {
         if (args.length != 14) {
             throw new RuntimeException("Not enough launch arguments");
         }
@@ -62,43 +62,31 @@ public class Arguments {
         }
     }
 
-    public static String inputFile() {
+    public String inputFile() {
         return inputFile;
     }
 
-    public static String outputFile() {
+    public String outputFile() {
         return outputFile;
     }
 
-    public static int workerCount() {
+    public int workerCount() {
         return workerCount;
     }
 
-    public static int workerTime() {
+    public int workerTime() {
         return workerTime;
     }
 
-    public static int lorryCapacity() {
+    public int lorryCapacity() {
         return lorryCapacity;
     }
 
-    public static int lorryTime() {
+    public int lorryTime() {
         return lorryTime;
     }
 
-    public static int ferryCapacity() {
+    public int ferryCapacity() {
         return ferryCapacity;
-    }
-
-    @Override
-    public String toString() {
-        return "Arguments[" +
-                "inputFile=" + inputFile + ", " +
-                "outputFile=" + outputFile + ", " +
-                "workerCount=" + workerCount + ", " +
-                "workerTime=" + workerTime + ", " +
-                "lorryCapacity=" + lorryCapacity + ", " +
-                "lorryTime=" + lorryTime + ", " +
-                "ferryCapacity=" + ferryCapacity + ']';
     }
 }

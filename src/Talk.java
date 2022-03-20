@@ -9,4 +9,10 @@ public abstract class Talk {
     public void talk(String message) {
         System.out.println(name + ": " + message);
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }
+

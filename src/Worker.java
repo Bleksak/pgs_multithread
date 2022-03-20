@@ -1,61 +1,74 @@
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Worker extends Talk implements Runnable {
+
+    private final static int LOADING_TIME = 10;
+    private static int totalLoaded = 0;
     private final Scheduler scheduler;
-    private final int maxWorkingTime;
 
-    private static int totalWorkDone;
-
-    private final static int LOADING_TIME = 1000;
+    private final int maxWaitingTime;
 
     private int workDone = 0;
 
-    public Worker(String name, Scheduler scheduler, int maxWorkingTime) {
+    public Worker(String name, Scheduler scheduler, int maxWaitingTime) {
         super(name);
 
         this.scheduler = scheduler;
-        this.maxWorkingTime = maxWorkingTime;
+        this.maxWaitingTime = maxWaitingTime;
 
         talk("initialized");
+    }
+
+    private static synchronized int incrementAndGetTotalLoaded() {
+        totalLoaded += 1;
+        return totalLoaded;
     }
 
     private void work(String block) throws InterruptedException {
         talk("got block, working on it");
 
-        for(int i = 0; i < block.length(); ++i) {
-            int waitTime = ThreadLocalRandom.current().nextInt(maxWorkingTime) + 1;
-//            Thread.sleep(waitTime);
-            talk("working on a block");
-            workDone += 1;
+        int waitTimeSum = 0;
 
-            synchronized (Worker.class) {
-                totalWorkDone += 1;
-            }
+        for (int i = 0; i < block.length(); ++i) {
+            int waitTime = ThreadLocalRandom.current().nextInt(maxWaitingTime) + 1;
+            Thread.sleep(waitTime);
+            workDone += 1;
+            scheduler.getLogger().log(this, "finished mining material - it took: " + waitTime + "ms");
+
+            waitTimeSum += waitTime;
         }
 
-        talk("I have " + workDone + " material");
+        scheduler.getLogger().log(this, "finished mining a block - it took: " + waitTimeSum + "ms");
     }
 
-    private static synchronized void doneCheck() {
-        if(totalWorkDone == Scheduler.blockSum) {
+    private void doneCheck() {
+        synchronized (Worker.class) {
+            if (totalLoaded == scheduler.getMaterialCount()) {
 
-//            invalidate the result
-            totalWorkDone += 1;
-            new Thread(Truck.getTruck()).start();
+//              invalidate the result
+                totalLoaded += 1;
+                scheduler.getTruckManager().sendTruck();
+            }
         }
     }
 
     private void load(String block) throws InterruptedException {
         talk("started loading");
+        talk("loading " + block.length() + " material");
 
-        for(int i = 0; i < block.length(); ++i) {
-//            Thread.sleep(LOADING_TIME);
-            synchronized (Truck.class) {
-                Truck.getTruck().load(this);
+        boolean lastCycleSent = false;
+
+        for (int i = 0; i < block.length(); ++i) {
+            Thread.sleep(LOADING_TIME);
+            boolean sent = scheduler.getTruckManager().loadTruck();
+            if(incrementAndGetTotalLoaded() == scheduler.getMaterialCount() && sent) {
+                lastCycleSent = true;
             }
         }
 
-        doneCheck();
+        if(!lastCycleSent) {
+            doneCheck();
+        }
     }
 
     public void run() {
@@ -63,15 +76,19 @@ public class Worker extends Talk implements Runnable {
 
         String block;
 
-        while((block = scheduler.getBlock(this)) != null) {
+        while ((block = scheduler.getBlock(this)) != null) {
             try {
                 work(block);
                 load(block);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
-
-            workDone = 0;
         }
+
+        talk("Total mined: " + workDone + " sources");
+    }
+
+    public int getWorkDone() {
+        return workDone;
     }
 }
